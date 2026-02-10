@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login Page</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../images/bgimage.svg);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin-top: 130px;
+    font-family: sans-serif;
+}
+
+#main-div {
+    width: 894px;
+    height: 541px;
+    background-color: white;
+    padding: 50px;
+}
+.sign-in{
+    padding-bottom: 15px;
+}
+#sign-in-box{
+    width:50%;
+}
+#sign-in-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.signbuttoncontent {
+    background: linear-gradient(180deg, #3949BE 0%, #0013A7 100%);
+    padding: 10px 15px;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.sign-in span {
+    display: block;
+}
+
+.field-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    height: 44px;
+    padding-left: 15px;
+    font-size: 16px;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+}
+
+.nextBtn {
+    width: 100%;
+    height: 44px;
+    background-color: #159AFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.password-container {
+    display: none;
+}
+#signuplink {
+    width: 100%;
+    display: inline-block;
+    margin: 26px auto;
+    margin-bottom: 0px;
+    line-height: 20px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #555;
+    text-decoration: none;
+}
+.sign-up{
+    color: #159AFF;
+
+}
+</style>
+</head>
+<body>
+<div id="main-div">
+    <div id="sign-in-box">
+        <div id="sign-in-head">
+            <div class="zoho-logo"><img src="../images/zohoiconlogin.svg" alt="logo"></div>
+            <div class="smart-sign-in">
+                <span class="signbuttoncontent">Try smart sign-in</span>
+            </div>
+        </div>
+        <div class="sign-in">
+            <span style="font-size:24px;line-height:30px;">Sign in</span>
+            <span style="font-size:16px;line-height:28px;">to access Workdrive</span>
+        </div>
+
+        
+        <div class="field-container">
+            <input id="login-id" placeholder="Email address or mobile number" autocomplete="username">
+            <div class="password-container">
+                <input type="password" id="password" placeholder="Enter password" autocomplete="current-password">
+            </div>
+            <button class="nextBtn" id="nextBtn">Next</button>
+            <button id="loginBtn" class="nextBtn" style="display:none;">Login</button>
+        </div>
+    </div>
+    <div id="signuplink">
+        <p>don't have an account   <a href = "signuppage.html" class="sign-up">Sign up now</a></p>
+        
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const nextBtn = document.getElementById('nextBtn');
+    const loginBtn = document.getElementById('loginBtn');
+    const loginInput = document.getElementById('login-id');
+    const passwordInput = document.getElementById('password');
+    const passwordContainer = document.querySelector('.password-container');
+
+    nextBtn.addEventListener('click', () => {
+        console.log('Next button clicked');
+        const username = loginInput.value.trim();
+        if (!username) {
+            alert('Enter your username or email');
+            return;
+        }
+        
+       localStorage.setItem("username", username);  
+
+        passwordContainer.style.display = 'block';
+        nextBtn.style.display = 'none';
+        loginBtn.style.display = 'block';
+        passwordInput.focus();
+    });
+
+   loginBtn.addEventListener('click', async () => {
+    console.log('Login button clicked');
+    const username = loginInput.value.trim();
+    const password = passwordInput.value.trim();
+
+    if (!username || !password) {
+        alert('Enter username and password');
+        return;
+    }
+
+    console.log('Sending fetch request');
+    try {
+        const response = await fetch('http://localhost:3000/api/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+        });
+
+        console.log('Fetch response:', response);
+
+        const data = await response.json();
+        console.log('Response data:', data);
+
+        if (data.success) {
+            
+            localStorage.setItem('user_id', data.user_id);
+          window.location.href = 'http://localhost:3000/index123.html';
+  
+        } else {
+            alert(data.message || 'Invalid credentials');
+        }
+    } catch (error) {
+        console.error('Fetch error:', error);
+        alert('Error connecting to server');
+    }
+});
+
+});
+
+
+</script>
+</body>
+</html>

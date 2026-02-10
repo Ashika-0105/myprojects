@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body, html {
+      padding: 0px;
+      margin: 0;
+      height: 100%;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    .main {
+      background: white;
+      width: 320px;
+      padding: 20px 25px;
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+   
+    .main h1 {
+      margin: 0;
+      text-align: center;
+      font-weight: 600;
+      color: #333;
+    }
+
+    
+    label {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 5px;
+      display: block;
+      font-weight: 500;
+    }
+
+ 
+    input[type="text"] {
+      width: 94%;
+      padding: 10px 10px;
+      border: 1.5px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    input[type="text"]:focus {
+      border-color: #4a90e2;
+    }
+
+ 
+    .tasklist {
+      margin-top: 10px;
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    
+    }
+
+    
+    .task {
+      background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .task-name {
+      font-weight: 600;
+      color: #222;
+    }
+
+    .description {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .task-buttons {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    button {
+      flex: 1;
+      padding: 6px 8px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      color: white;
+      transition: background-color 0.2s ease;
+    }
+    button.delete {
+      background-color: #e74c3c;
+    }
+    button.delete:hover {
+      background-color: #c0392b;
+    }
+    button.finished {
+      background-color: #27ae60;
+    }
+    button.finished:hover {
+      background-color: #1e8449;
+    }
+    #create-task{
+      padding: 8px 12px;
+      background-color: #4a90e2;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main">
+    <h1>Task Manager</h1>
+    
+    <label for="task-name">Enter task name:</label>
+    <input type="text" id="task-name" placeholder="Task name">
+
+    <label for="task-description">Enter task description:</label>
+    <input type="text" id="task-description" placeholder="Task description">
+    <button id="create-task">Create</button> 
+
+    <div class="tasklist">
+      <!-- <div class="task">
+        <div class="task-name">HTML</div>
+        <div class="description">Something I like</div>
+        <div class="task-buttons">
+          <button class="delete">Delete</button>
+          <button class="finished">Finished</button>
+        </div>
+      </div> -->
+   
+    </div>
+  </div>
+
+</body>
+<script src="app.js"></script>
+</html>
