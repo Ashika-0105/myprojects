@@ -1,0 +1,39 @@
+.file-item {
+  display: flex;         
+  align-items: center;   
+  gap: 16px;            
+  cursor: pointer;
+  padding: 5px 0;        
+  background-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.file-item img {
+  width: 16px;          
+  height: 16px;
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column; 
+  gap: 3px;               
+}
+
+.file-date {
+  font-size: 13px;       
+  color: #7C8187;        
+  margin: 0;
+  font-weight: 300;      
+}
+
+.file-name {
+  font-size: 15px;
+  color: #FFFFFF;        
+  font-weight: 400;      
+  margin: 0;
+  transition: color 0.2s ease;
+}
+
+.file-item:hover .file-name {
+  color: #E46643;       
+}

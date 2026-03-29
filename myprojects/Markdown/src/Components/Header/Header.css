@@ -1,0 +1,139 @@
+.main-header {
+    background-color: #2B2D31;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Pushes Logo left and Save right */
+    color: white;
+}
+/* src/Components/Header/Header.css */
+/* Add to src/Components/Header/Header.css */
+.doc-name-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid transparent;
+  color: #FFFFFF;
+  font-size: 15px;
+  outline: none;
+  width: 150px;
+  caret-color: #E46643;
+}
+
+.doc-name-input:focus {
+  border-bottom: 1px solid #FFFFFF;
+}
+.doc-name-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid transparent;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    width: 100%;
+    caret-color: #E46643; /* Matches your theme orange */
+    transition: border-bottom 0.3s;
+}
+
+.doc-name-input:focus {
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.doc-name-input:hover {
+    cursor: pointer;
+}
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+/* LEFT SIDE STYLING */
+#close {
+    background-color: #35393F; 
+    width: 72px;
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#close:hover {
+    background-color: #E46643; 
+}
+
+.logo {
+    margin: 0 24px;
+}
+
+.separator {
+    width: 1px;
+    height: 40px;
+    background-color: #5A6069;
+    margin-right: 24px;
+}
+
+.document-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.doc-label {
+    color: #7C8187;
+    font-size: 13px;
+    margin: 0;
+    font-weight: 300;
+}
+
+.doc-name {
+    color: #FFFFFF;
+    font-size: 15px;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.header-right {
+    gap: 24px; 
+    padding-right: 16px;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.delete-btn:hover {
+    opacity: 1; 
+}
+
+.save-btn {
+    background-color: #E46643;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    height: 48px; 
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    transition: background-color 0.3s;
+}
+
+.save-btn:hover {
+    background-color: #F39765;
+}
+
+.save-btn img {
+    width: 16px; 
+}
